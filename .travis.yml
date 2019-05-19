@@ -1,0 +1,24 @@
+dist: xenial
+
+language: c 
+
+cache: ccache
+
+install:
+  - sudo apt-get install -y subversion tar g++ zlib1g-dev build-essential git python time gawk gettext unzip file libssl-dev wget gcc flex bison libz-dev libncurses-dev make
+
+addons:
+  apt:
+    update: true
+    packages:
+    - lib32z1
+    -  libncurses5
+
+sudo: false
+
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+
+script:
+  - bash BuildN00bKernel.sh
